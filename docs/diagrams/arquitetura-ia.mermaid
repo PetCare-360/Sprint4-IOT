@@ -1,0 +1,44 @@
+flowchart TB
+    subgraph Usuarios["Usuarios"]
+        Tutor["Tutor do Pet\n(App Mobile/Web)"]
+        Clinica["Equipe CLYVO VET\n(Dashboard Clinico)"]
+    end
+
+    subgraph Edge["Camada IoT - Sprint 1"]
+        Coleira["Coleira Inteligente\nESP32 + Sensores\n(Temp, FC, Atividade)"]
+    end
+
+    subgraph Backend["Aplicacao"]
+        API["API Gateway / Backend\n(REST)"]
+    end
+
+    subgraph Dados["Camada de Dados"]
+        DBCadastral["Banco Relacional\nPerfil, Historico Clinico,\nVacinas, Consultas, Medicamentos"]
+        DBSerie["Banco de Series Temporais\nLeituras da Coleira"]
+    end
+
+    subgraph IA["Camada de IA - Vitalis Core"]
+        Sense["Vitalis Sense\nModelo Preditivo /\nDeteccao de Anomalias"]
+        Rules["Vitalis Rules\nMotor de Regras\n(Priorizacao + Recomendacao)"]
+        Voice["Vitalis Voice\nIA Generativa (LLM)\nPersonalizacao & Linguagem Natural"]
+    end
+
+    Coleira -- "HTTP PUT (JSON por leitura)" --> API
+    Tutor -- "cadastro, respostas, feedback" --> API
+    Clinica -- "prontuario, prescricoes" --> API
+
+    API -- "grava" --> DBCadastral
+    API -- "grava" --> DBSerie
+
+    DBSerie -- "series temporais" --> Sense
+    Sense -- "score de anomalia" --> Rules
+    DBCadastral -- "perfil, historico, regras de negocio" --> Rules
+    Rules -- "evento priorizado" --> Voice
+    DBCadastral -- "contexto adicional (RAG)" --> Voice
+
+    Voice -- "mensagem personalizada" --> API
+    API -- "notificacao push / chat" --> Tutor
+    API -- "painel de priorizacao" --> Clinica
+
+    Tutor -- "feedback (leu, agendou, ignorou)" --> API
+    Clinica -- "marcou resolvido/agendado" --> API

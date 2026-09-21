@@ -1,0 +1,17 @@
+{
+  "name": "petcare360-vitalis-core",
+  "version": "1.0.0",
+  "description": "PetCare 360 (CLYVO VET) - Camada de IA Vitalis Core (Sense + Rules + Voice) integrada ao backend/dashboard das Sprints 1-3",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/run.js",
+    "test:gemini": "node --env-file=.env scripts/testar-gemini.js"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "engines": {
+    "node": ">=18"
+  }
+}

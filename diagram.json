@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "author": "PetCare360",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -60, "left": 180, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:3V3", "dht:VCC", "red", [] ],
+    [ "esp:GND", "dht:GND", "black", [] ],
+    [ "esp:15", "dht:DATA", "green", [] ],
+    [ "dht:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht:SDA", "esp:D15", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,50 @@
+sequenceDiagram
+    autonumber
+
+    actor Tutor as Tutor do Pet
+    participant Coleira as Coleira Inteligente
+    participant API as API Gateway / Backend
+    participant DBSerie as Banco de Series Temporais
+    participant DBCad as Banco Relacional
+    participant Sense as Vitalis Sense
+    participant Rules as Vitalis Rules
+    participant Voice as Vitalis Voice
+    actor Clinica as Equipe CLYVO VET
+
+    Note over Coleira,API: 1. Coleta e envio dos dados
+
+    Coleira->>API: HTTP PUT (JSON)<br/>Temperatura, FC, atividade
+    API->>DBSerie: Grava leitura da coleira
+    DBSerie-->>API: Confirma persistência
+
+    Note over DBSerie,Sense: 2. Análise preditiva
+
+    DBSerie->>Sense: Envia séries temporais
+    Sense->>Sense: Processa dados
+    Sense-->>Rules: Score de anomalia
+
+    Note over Rules,DBCad: 3. Contextualização e decisão
+
+    Rules->>DBCad: Consulta perfil, histórico<br/>e regras de negócio
+    DBCad-->>Rules: Dados do pet
+    Rules->>Rules: Avalia prioridade<br/>e recomendação
+    Rules-->>Voice: Evento priorizado
+
+    Note over DBCad,Voice: 4. Geração da resposta
+
+    Voice->>DBCad: Consulta contexto adicional (RAG)
+    DBCad-->>Voice: Contexto clínico
+    Voice->>Voice: Gera mensagem personalizada
+    Voice-->>API: Mensagem personalizada
+
+    Note over API,Tutor: 5. Comunicação
+
+    API-->>Tutor: Notificação push / Chat
+    API-->>Clinica: Painel de priorização
+
+    Note over Tutor,API: 6. Feedback
+
+    Tutor->>API: Feedback<br/>(leu, agendou, ignorou)
+    Clinica->>API: Marca resolvido/agendado
+
+    API->>DBCad: Registra feedback e atualização

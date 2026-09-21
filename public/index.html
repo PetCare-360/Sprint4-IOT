@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare 360 | Vitalis Core</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+
+            --primary: #3b82f6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+
+            --vitalis: #6366f1;
+            --vitalis-bg: #eef2ff;
+
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .layout { max-width: 1200px; width: 100%; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 2rem; flex-wrap: wrap; gap: 1.5rem;
+        }
+
+        .brand h1 { font-size: 1.875rem; font-weight: 700; letter-spacing: -0.025em; display: flex; align-items: center; gap: 0.75rem; }
+        .brand h1 i { color: var(--primary); }
+        .brand p { color: var(--text-muted); font-size: 0.875rem; margin-top: 0.25rem; }
+
+        .status-container {
+            display: flex; align-items: center; gap: 0.75rem; background: var(--bg-card);
+            padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
+        }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); }
+        .status-dot.online { background: var(--success); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1); }
+        .status-dot.offline { background: var(--danger); }
+        #statusText { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+
+        /* Tabs / seletor de pet */
+        .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+
+        .tabs { display: flex; gap: 0.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 0.25rem; }
+        .tab-btn {
+            border: none; background: transparent; padding: 0.5rem 1rem; border-radius: 0.5rem;
+            font-family: inherit; font-size: 0.875rem; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all .15s ease;
+        }
+        .tab-btn.active { background: var(--text-main); color: #fff; }
+
+        select#petSelect {
+            font-family: inherit; font-size: 0.875rem; font-weight: 500; color: var(--text-main);
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 0.55rem 0.9rem;
+        }
+
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* Cards de sinais vitais */
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem; }
+
+        .card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; padding: 1.5rem; transition: all 0.2s ease; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+        .card-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+        .card-label { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; }
+        .card-content { display: flex; flex-direction: column; gap: 0.5rem; }
+        .card-value { font-size: 2.25rem; font-weight: 700; display: flex; align-items: baseline; gap: 0.25rem; }
+        .card-unit { font-size: 0.95rem; color: var(--text-muted); font-weight: 400; }
+        .card-sub { font-size: 0.75rem; color: var(--text-muted); }
+
+        .temp-card .card-icon { background: #eff6ff; color: var(--primary); }
+        .heart-card .card-icon { background: #fff1f2; color: var(--danger); }
+        .activity-card .card-icon { background: #fffbeb; color: var(--warning); }
+        .battery-card .card-icon { background: #ecfdf5; color: var(--success); }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.8; } 100% { transform: scale(1); opacity: 1; } }
+
+        /* Painel Vitalis Core */
+        .vitalis-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.25rem; padding: 1.75rem; margin-bottom: 1.5rem; }
+        .vitalis-panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+        .vitalis-title { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.05rem; }
+        .vitalis-title i { color: var(--vitalis); font-size: 1.3rem; }
+
+        .badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.7rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
+        .badge-informativo { background: #ecfdf5; color: #047857; }
+        .badge-atencao { background: #fffbeb; color: #b45309; }
+        .badge-urgente { background: #fef2f2; color: #b91c1c; }
+        .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+        .score-row { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1.25rem; }
+        .score-value { font-size: 2rem; font-weight: 800; color: var(--vitalis); }
+        .score-label { color: var(--text-muted); font-size: 0.85rem; }
+
+        .voice-message {
+            background: var(--vitalis-bg); border-left: 3px solid var(--vitalis); border-radius: 0.75rem;
+            padding: 1rem 1.25rem; font-size: 0.95rem; color: #312e81; margin-bottom: 1rem;
+        }
+        .voice-meta { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.6rem; font-size: 0.72rem; color: #6366f1; opacity: 0.8; }
+
+        .clinic-summary {
+            background: var(--bg-body); border: 1px dashed var(--border-color); border-radius: 0.75rem;
+            padding: 1rem 1.25rem; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;
+        }
+        .clinic-summary strong { color: var(--text-main); }
+
+        .rec-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .rec-list li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.85rem; color: var(--text-main); }
+        .rec-list i { color: var(--vitalis); margin-top: 0.15rem; }
+
+        .fatores { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
+        .fatores summary { cursor: pointer; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .fatores ul { margin-top: 0.6rem; padding-left: 1.1rem; font-size: 0.8rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.3rem; }
+
+        .sim-btn {
+            font-family: inherit; font-size: 0.8rem; font-weight: 600; color: #fff; background: var(--vitalis);
+            border: none; border-radius: 0.6rem; padding: 0.55rem 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;
+            transition: opacity .15s ease;
+        }
+        .sim-btn:hover { opacity: 0.85; }
+        .sim-btn:disabled { opacity: 0.5; cursor: wait; }
+
+        /* Fila da clinica */
+        .queue-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .queue-item {
+            display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center;
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem; padding: 1rem 1.25rem;
+        }
+        .queue-score { font-size: 1.4rem; font-weight: 800; width: 3rem; text-align: center; }
+        .queue-item.urgente .queue-score { color: #b91c1c; }
+        .queue-item.atencao .queue-score { color: #b45309; }
+        .queue-item.informativo .queue-score { color: #047857; }
+        .queue-pet { font-weight: 700; }
+        .queue-msg { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem; }
+        .queue-tag { font-size: 0.7rem; color: var(--vitalis); background: var(--vitalis-bg); padding: 0.15rem 0.5rem; border-radius: 9999px; }
+
+        footer { margin-top: 3rem; text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
+
+        @media (max-width: 640px) {
+            header { text-align: center; justify-content: center; }
+            .brand { width: 100%; }
+            .status-container { margin: 0 auto; }
+            .toolbar { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout">
+        <header>
+            <div class="brand">
+                <h1><i class="ph-bold ph-paw-print"></i> PetCare 360</h1>
+                <p>Monitoramento em tempo real + Vitalis Core (IA) — CLYVO VET</p>
+            </div>
+            <div class="status-container">
+                <div id="statusDot" class="status-dot"></div>
+                <span id="statusText">Iniciando sistema...</span>
+            </div>
+        </header>
+
+        <div class="toolbar">
+            <div class="tabs">
+                <button class="tab-btn active" data-view="tutor">Visão do Tutor</button>
+                <button class="tab-btn" data-view="clinica">Painel da Clínica</button>
+            </div>
+            <select id="petSelect"></select>
+        </div>
+
+        <!-- VISAO DO TUTOR -->
+        <section id="view-tutor" class="view active">
+            <main class="dashboard-grid">
+                <div class="card temp-card">
+                    <div class="card-header"><span class="card-label">Temperatura Corporal</span><div class="card-icon"><i class="ph-bold ph-thermometer-hot"></i></div></div>
+                    <div class="card-content"><div class="card-value"><span id="temp">--</span><span class="card-unit">°C</span></div></div>
+                </div>
+                <div class="card heart-card">
+                    <div class="card-header"><span class="card-label">Frequência Cardíaca</span><div class="card-icon pulse"><i class="ph-fill ph-heartbeat"></i></div></div>
+                    <div class="card-content"><div class="card-value"><span id="heartRate">--</span><span class="card-unit">bpm</span></div></div>
+                </div>
+                <div class="card activity-card">
+                    <div class="card-header"><span class="card-label">Nível de Atividade</span><div class="card-icon"><i class="ph-bold ph-lightning"></i></div></div>
+                    <div class="card-content"><div class="card-value"><span id="activity">--</span><span class="card-unit">%</span></div></div>
+                </div>
+                <div class="card battery-card">
+                    <div class="card-header"><span class="card-label">Bateria da Coleira</span><div class="card-icon" id="batteryIcon"><i class="ph-bold ph-battery-high"></i></div></div>
+                    <div class="card-content"><div class="card-value"><span id="battery">--</span><span class="card-unit">%</span></div></div>
+                </div>
+            </main>
+
+            <div class="vitalis-panel">
+                <div class="vitalis-panel-header">
+                    <div class="vitalis-title"><i class="ph-fill ph-sparkle"></i> Vitalis Core — o que a IA notou</div>
+                    <span id="nivelBadge" class="badge badge-informativo"><span class="badge-dot"></span> --</span>
+                </div>
+
+                <div class="score-row">
+                    <span class="score-value" id="scoreValue">--</span>
+                    <span class="score-label">/ 100 · scorePrioridade</span>
+                </div>
+
+                <div class="voice-message">
+                    <div id="mensagemTutor">Carregando análise...</div>
+                    <div class="voice-meta"><i class="ph-bold ph-robot"></i> <span id="voiceOrigem">gerado pela IA</span></div>
+                </div>
+
+                <ul class="rec-list" id="recList"></ul>
+
+                <details class="fatores">
+                    <summary>Ver por que a IA chegou a essa prioridade</summary>
+                    <ul id="fatoresList"></ul>
+                </details>
+
+                <div style="margin-top:1.25rem;">
+                    <button class="sim-btn" id="simBtn"><i class="ph-bold ph-flask"></i> Simular pico de frequência cardíaca (demo)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAINEL DA CLINICA -->
+        <section id="view-clinica" class="view">
+            <div class="vitalis-panel">
+                <div class="vitalis-panel-header">
+                    <div class="vitalis-title"><i class="ph-fill ph-sparkle"></i> Fila de priorização (Vitalis Rules)</div>
+                </div>
+                <div class="queue-list" id="queueList">
+                    <p style="color:var(--text-muted); font-size:0.85rem;">Carregando fila...</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 PetCare 360 · Vitalis Core — <a href="https://github.com/PetCare-360">PetCare360</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const API = "";
+        let petAtual = null;
+        let pets = [];
+
+        function setStatus(ok) {
+            const dot = document.getElementById('statusDot');
+            const text = document.getElementById('statusText');
+            dot.className = 'status-dot ' + (ok ? 'online' : 'offline');
+            text.innerText = ok ? 'Sincronizado: ' + new Date().toLocaleTimeString('pt-BR') : 'Desconectado';
+        }
+
+        function batteryVisual(battery) {
+            const bar = { icon: 'ph-battery-high', color: 'var(--success)' };
+            if (battery <= 20) { bar.icon = 'ph-battery-low'; bar.color = 'var(--danger)'; }
+            else if (battery <= 50) { bar.icon = 'ph-battery-medium'; bar.color = 'var(--warning)'; }
+            return bar;
+        }
+
+        async function carregarPets() {
+            const res = await fetch(`${API}/api/pets`);
+            pets = await res.json();
+            const select = document.getElementById('petSelect');
+            select.innerHTML = pets.map(p => `<option value="${p.petId}">${p.nome} (${p.raca})</option>`).join('');
+            petAtual = pets[0]?.petId;
+            select.value = petAtual;
+            select.addEventListener('change', () => { petAtual = select.value; atualizarTutor(); });
+        }
+
+        function renderBadge(nivel) {
+            const el = document.getElementById('nivelBadge');
+            el.className = 'badge badge-' + nivel;
+            el.innerHTML = `<span class="badge-dot"></span> ${nivel}`;
+        }
+
+        async function atualizarTutor() {
+            if (!petAtual) return;
+            try {
+                const leiturasRes = await fetch(`${API}/api/pets/${petAtual}/leituras?n=1`);
+                const leituras = await leiturasRes.json();
+                const ultima = leituras[leituras.length - 1];
+                if (ultima) {
+                    document.getElementById('temp').innerText = Number(ultima.temperature).toFixed(1);
+                    document.getElementById('heartRate').innerText = Math.round(ultima.heartRate);
+                    document.getElementById('activity').innerText = Math.round(ultima.activityLevel);
+                    document.getElementById('battery').innerText = Math.round(ultima.battery);
+                    const bv = batteryVisual(ultima.battery);
+                    document.querySelector('#batteryIcon i').className = 'ph-bold ' + bv.icon;
+                }
+
+                const insightRes = await fetch(`${API}/api/pets/${petAtual}/insight`);
+                const insight = await insightRes.json();
+                if (insight && !insight.erro) {
+                    renderBadge(insight.nivel);
+                    document.getElementById('scoreValue').innerText = insight.scorePrioridade;
+                    document.getElementById('mensagemTutor').innerText = insight.mensagens.mensagemTutor;
+                    document.getElementById('voiceOrigem').innerText =
+                        insight.mensagens.origem === 'llm'
+                            ? `gerado pela IA (${insight.mensagens.provedor === 'gemini' ? 'Google Gemini' : 'Claude'})${insight.mensagens.reaproveitada ? ' · reaproveitada (sem mudança de prioridade)' : ''}`
+                            : 'mensagem de segurança (fallback, sem LLM configurado)';
+
+                    const recList = document.getElementById('recList');
+                    recList.innerHTML = insight.recomendacoes.length
+                        ? insight.recomendacoes.map(r => `<li><i class="ph-bold ph-check-circle"></i> ${r.mensagem}</li>`).join('')
+                        : '<li><i class="ph-bold ph-check-circle"></i> Nenhuma recomendação proativa no momento.</li>';
+
+                    document.getElementById('fatoresList').innerHTML =
+                        insight.fatoresConsiderados.map(f => `<li>${f}</li>`).join('');
+                }
+                setStatus(true);
+            } catch (e) {
+                console.error(e);
+                setStatus(false);
+            }
+        }
+
+        async function atualizarClinica() {
+            try {
+                const res = await fetch(`${API}/api/queue`);
+                const fila = await res.json();
+                const list = document.getElementById('queueList');
+                list.innerHTML = fila.map(e => `
+                    <div class="queue-item ${e.nivel}">
+                        <div class="queue-score">${e.scorePrioridade}</div>
+                        <div>
+                            <div class="queue-pet">${e.petNome} · <span style="color:var(--text-muted); font-weight:400;">tutor ${e.tutorNome}</span></div>
+                            <div class="queue-msg">${e.mensagens.resumoClinica}</div>
+                        </div>
+                        <span class="queue-tag">${e.nivel}${e.baselineProvisorio ? ' · baseline provisório' : ''}</span>
+                    </div>
+                `).join('') || '<p style="color:var(--text-muted); font-size:0.85rem;">Nenhum pet monitorado ainda.</p>';
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('view-' + btn.dataset.view).classList.add('active');
+                if (btn.dataset.view === 'clinica') atualizarClinica();
+            });
+        });
+
+        document.getElementById('simBtn').addEventListener('click', async (e) => {
+            const btn = e.currentTarget;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="ph-bold ph-spinner"></i> Simulando...';
+            try {
+                await fetch(`${API}/api/simular`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ petId: petAtual, heartRate: 170, activityLevel: 88 })
+                });
+                await atualizarTutor();
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="ph-bold ph-flask"></i> Simular pico de frequência cardíaca (demo)';
+            }
+        });
+
+        (async function init() {
+            await carregarPets();
+            await atualizarTutor();
+            setInterval(atualizarTutor, 5000);
+        })();
+    </script>
+</body>
+</html>

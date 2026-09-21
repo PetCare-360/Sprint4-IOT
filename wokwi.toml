@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'sketch/build/esp32.esp32.esp32/sketch.ino.bin'
+elf = 'sketch/build/esp32.esp32.esp32/sketch.ino.elf'

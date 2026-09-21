@@ -1,0 +1,253 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "data": {
+    "deviceId": "COLLAR_001",
+    "petId": "PET_00123",
+    "timestamp": "2026-09-20T19:51:54.995Z",
+    "temperature": 38.5,
+    "heartRate": 175,
+    "activityLevel": 90,
+    "battery": 85
+  },
+  "pets": [
+    {
+      "petId": "PET_00123",
+      "nome": "Thor",
+      "especie": "Canino",
+      "raca": "Golden Retriever",
+      "porte": "grande",
+      "dataNascimento": "2021-03-14",
+      "peso_kg": 32.4,
+      "sexo": "M",
+      "castrado": true,
+      "tutorId": "USR_00456",
+      "tutorNome": "Camila",
+      "tutorPreferencias": {
+        "idioma": "pt-BR",
+        "tom": "caloroso"
+      },
+      "coleiraId": "COLLAR_001",
+      "predisposicaoRacial": [
+        "cardiaca",
+        "displasia_coxofemoral"
+      ],
+      "ultimaConsultaEm": "2026-02-15",
+      "proximaVacinaEm": "2026-10-05",
+      "ultimaLimpezaDentariaEm": "2025-06-01",
+      "medicamentos": [
+        {
+          "nome": "Condroprotetor",
+          "frequenciaDiasEsperada": 1,
+          "dosesEsperadas30d": 30,
+          "dosesRegistradas30d": 22
+        }
+      ]
+    },
+    {
+      "petId": "PET_00124",
+      "nome": "Mia",
+      "especie": "Canino",
+      "raca": "Chihuahua",
+      "porte": "pequeno",
+      "dataNascimento": "2019-07-02",
+      "peso_kg": 2.8,
+      "sexo": "F",
+      "castrado": true,
+      "tutorId": "USR_00457",
+      "tutorNome": "Rafael",
+      "tutorPreferencias": {
+        "idioma": "pt-BR",
+        "tom": "direto"
+      },
+      "coleiraId": "COLLAR_002",
+      "predisposicaoRacial": [
+        "traqueia",
+        "cardiaca"
+      ],
+      "ultimaConsultaEm": "2026-08-30",
+      "proximaVacinaEm": "2027-01-10",
+      "ultimaLimpezaDentariaEm": "2026-05-10",
+      "medicamentos": []
+    },
+    {
+      "petId": "PET_00125",
+      "nome": "Bento",
+      "especie": "Canino",
+      "raca": "SRD",
+      "porte": "medio",
+      "dataNascimento": "2026-06-01",
+      "peso_kg": 6.1,
+      "sexo": "M",
+      "castrado": false,
+      "tutorId": "USR_00458",
+      "tutorNome": "Ana",
+      "tutorPreferencias": {
+        "idioma": "pt-BR",
+        "tom": "caloroso"
+      },
+      "coleiraId": "COLLAR_003",
+      "predisposicaoRacial": [],
+      "ultimaConsultaEm": "2026-09-10",
+      "proximaVacinaEm": "2026-09-25",
+      "ultimaLimpezaDentariaEm": null,
+      "medicamentos": []
+    }
+  ],
+  "leituras": {
+    "PET_00123": [
+      {
+        "timestamp": "2026-09-13T08:00:00Z",
+        "temperature": 38.4,
+        "heartRate": 92,
+        "activityLevel": 40,
+        "battery": 98
+      },
+      {
+        "timestamp": "2026-09-13T14:00:00Z",
+        "temperature": 38.6,
+        "heartRate": 97,
+        "activityLevel": 55,
+        "battery": 97
+      },
+      {
+        "timestamp": "2026-09-13T20:00:00Z",
+        "temperature": 38.5,
+        "heartRate": 90,
+        "activityLevel": 30,
+        "battery": 95
+      },
+      {
+        "timestamp": "2026-09-14T08:00:00Z",
+        "temperature": 38.3,
+        "heartRate": 94,
+        "activityLevel": 42,
+        "battery": 94
+      },
+      {
+        "timestamp": "2026-09-14T14:00:00Z",
+        "temperature": 38.7,
+        "heartRate": 99,
+        "activityLevel": 60,
+        "battery": 93
+      },
+      {
+        "timestamp": "2026-09-14T20:00:00Z",
+        "temperature": 38.5,
+        "heartRate": 91,
+        "activityLevel": 28,
+        "battery": 92
+      },
+      {
+        "timestamp": "2026-09-15T08:00:00Z",
+        "temperature": 38.4,
+        "heartRate": 93,
+        "activityLevel": 38,
+        "battery": 90
+      },
+      {
+        "timestamp": "2026-09-15T14:00:00Z",
+        "temperature": 38.6,
+        "heartRate": 98,
+        "activityLevel": 58,
+        "battery": 89
+      },
+      {
+        "timestamp": "2026-09-15T20:00:00Z",
+        "temperature": 38.5,
+        "heartRate": 92,
+        "activityLevel": 33,
+        "battery": 88
+      },
+      {
+        "timestamp": "2026-09-16T08:00:00Z",
+        "temperature": 38.3,
+        "heartRate": 95,
+        "activityLevel": 44,
+        "battery": 87
+      },
+      {
+        "timestamp": "2026-09-16T14:00:00Z",
+        "temperature": 38.6,
+        "heartRate": 96,
+        "activityLevel": 52,
+        "battery": 86
+      },
+      {
+        "timestamp": "2026-09-16T20:00:00Z",
+        "temperature": 38.4,
+        "heartRate": 90,
+        "activityLevel": 31,
+        "battery": 85
+      }
+    ],
+    "PET_00124": [
+      {
+        "timestamp": "2026-09-15T08:00:00Z",
+        "temperature": 38.9,
+        "heartRate": 128,
+        "activityLevel": 50,
+        "battery": 99
+      },
+      {
+        "timestamp": "2026-09-15T14:00:00Z",
+        "temperature": 39,
+        "heartRate": 132,
+        "activityLevel": 65,
+        "battery": 98
+      },
+      {
+        "timestamp": "2026-09-15T20:00:00Z",
+        "temperature": 38.8,
+        "heartRate": 121,
+        "activityLevel": 35,
+        "battery": 97
+      },
+      {
+        "timestamp": "2026-09-16T08:00:00Z",
+        "temperature": 38.9,
+        "heartRate": 126,
+        "activityLevel": 48,
+        "battery": 96
+      },
+      {
+        "timestamp": "2026-09-16T14:00:00Z",
+        "temperature": 39.1,
+        "heartRate": 130,
+        "activityLevel": 70,
+        "battery": 95
+      },
+      {
+        "timestamp": "2026-09-16T20:00:00Z",
+        "temperature": 38.8,
+        "heartRate": 119,
+        "activityLevel": 30,
+        "battery": 94
+      },
+      {
+        "timestamp": "2026-09-17T08:00:00Z",
+        "temperature": 38.9,
+        "heartRate": 124,
+        "activityLevel": 46,
+        "battery": 93
+      },
+      {
+        "timestamp": "2026-09-17T14:00:00Z",
+        "temperature": 39,
+        "heartRate": 129,
+        "activityLevel": 68,
+        "battery": 92
+      }
+    ],
+    "PET_00125": [
+      {
+        "timestamp": "2026-09-19T09:00:00Z",
+        "temperature": 38.7,
+        "heartRate": 118,
+        "activityLevel": 72,
+        "battery": 99
+      }
+    ]
+  },
+  "eventos": [],
+  "feedback": []
+}
