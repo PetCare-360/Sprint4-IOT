@@ -49,9 +49,6 @@ describe("Vitalis Voice", () => {
   });
 
   it("com GEMINI_API_KEY configurada, chama a API do Gemini e faz o parsing correto da resposta (fetch simulado)", async () => {
-    // Este ambiente de execucao nao tem acesso de rede ao Gemini, entao simulamos
-    // exatamente o formato de resposta real da API (generativelanguage.googleapis.com)
-    // para provar que o parsing em src/vitalisVoice.js funciona de ponta a ponta.
     const fetchOriginal = global.fetch;
     process.env.GEMINI_API_KEY = "chave-de-teste-fake";
 
@@ -59,7 +56,7 @@ describe("Vitalis Voice", () => {
     global.fetch = async (url, opts) => {
       urlChamada = url;
       const corpo = JSON.parse(opts.body);
-      assert.ok(corpo.contents[0].parts[0].text.includes("Thor")); // prompt contem o contexto do pet
+      assert.ok(corpo.contents[0].parts[0].text.includes("Thor"));
       return {
         ok: true,
         json: async () => ({

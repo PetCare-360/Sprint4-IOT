@@ -219,7 +219,7 @@ Resultado da última execução e chamadas reais à API estão documentados em
 
 ## 8. Pitch
 
-Link do vídeo (YouTube): _a preencher após a gravação_
+Link do vídeo (YouTube): **[Demonstração](https://youtu.be/XwkWr996FR0)**
 
 ## 9. Continuidade
 

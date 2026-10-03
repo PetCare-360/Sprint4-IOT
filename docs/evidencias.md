@@ -2,8 +2,7 @@
 
 Este documento reúne evidências reais (não simuladas manualmente) de que a implementação
 funciona ponta a ponta: testes automatizados executados e chamadas reais aos endpoints da
-API rodando localmente. Os artefatos brutos completos estão em `evidencias-raw.txt` e
-`testes-output.txt`, nesta mesma pasta.
+API rodando localmente. Os artefatos brutos completos estão em `evidencias-raw.txt`.
 
 ## 1. Testes automatizados (`npm test`)
 

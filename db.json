@@ -3,10 +3,10 @@
   "data": {
     "deviceId": "COLLAR_001",
     "petId": "PET_00123",
-    "timestamp": "2026-09-20T19:51:54.995Z",
-    "temperature": 38.5,
-    "heartRate": 175,
-    "activityLevel": 90,
+    "timestamp": "2026-10-02T23:55:20.569Z",
+    "temperature": 38.4,
+    "heartRate": 170,
+    "activityLevel": 88,
     "battery": 85
   },
   "pets": [
@@ -236,6 +236,13 @@
         "heartRate": 129,
         "activityLevel": 68,
         "battery": 92
+      },
+      {
+        "timestamp": "2026-10-02T23:29:05.842Z",
+        "temperature": 39,
+        "heartRate": 170,
+        "activityLevel": 88,
+        "battery": 92
       }
     ],
     "PET_00125": [
@@ -245,9 +252,1404 @@
         "heartRate": 118,
         "activityLevel": 72,
         "battery": 99
+      },
+      {
+        "timestamp": "2026-10-02T23:29:13.200Z",
+        "temperature": 38.7,
+        "heartRate": 170,
+        "activityLevel": 88,
+        "battery": 99
       }
     ]
   },
-  "eventos": [],
+  "eventos": [
+    {
+      "eventoId": "EVT_1790983705763_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-09-16T20:00:00Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 40,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore -1.44 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-09-16T20:00:00Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": -1.44,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.49,
+            "desvioPadrao": 0.13,
+            "zScore": -0.7,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 90,
+            "baselinePersonalizado": 94.27,
+            "desvioPadrao": 2.97,
+            "zScore": -1.44,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 31,
+            "baselinePersonalizado": 43.64,
+            "desvioPadrao": 11.25,
+            "zScore": -1.12,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore -1.44). Prioridade: atencao (score 40). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790983714332_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:28:34.331Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 78,
+      "nivel": "urgente",
+      "fatoresConsiderados": [
+        "zScore 24.64 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:28:34.331Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 24.64,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.48,
+            "desvioPadrao": 0.13,
+            "zScore": -0.66,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 93.92,
+            "desvioPadrao": 3.09,
+            "zScore": 24.64,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 42.58,
+            "desvioPadrao": 11.33,
+            "zScore": 4.01,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Notamos uma alteracao importante em frequencia cardiaca de Thor. Recomendamos contato com a CLYVO VET o quanto antes para avaliacao.",
+        "resumoClinica": "Thor (Golden Retriever, 5.6 anos) apresentou zScore 24.64 em heartRate. Prioridade: urgente (score 78). Fatores: zScore 24.64 em heartRate (anomalia_alta); fator de risco raca/idade 0.7; ultima consulta ha 230 dias; adesao ao tratamento 73%.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790983727307_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:28:34.331Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 78,
+      "nivel": "urgente",
+      "fatoresConsiderados": [
+        "zScore 24.64 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:28:34.331Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 24.64,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.48,
+            "desvioPadrao": 0.13,
+            "zScore": -0.66,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 93.92,
+            "desvioPadrao": 3.09,
+            "zScore": 24.64,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 42.58,
+            "desvioPadrao": 11.33,
+            "zScore": 4.01,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Notamos uma alteracao importante em frequencia cardiaca de Thor. Recomendamos contato com a CLYVO VET o quanto antes para avaliacao.",
+        "resumoClinica": "Thor (Golden Retriever, 5.6 anos) apresentou zScore 24.64 em heartRate. Prioridade: urgente (score 78). Fatores: zScore 24.64 em heartRate (anomalia_alta); fator de risco raca/idade 0.7; ultima consulta ha 230 dias; adesao ao tratamento 73%.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790983733571_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:28:53.570Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 55,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore 3.3 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:28:53.570Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 3.3,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.48,
+            "desvioPadrao": 0.12,
+            "zScore": -0.62,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 99.77,
+            "desvioPadrao": 21.31,
+            "zScore": 3.3,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 46.08,
+            "desvioPadrao": 16.62,
+            "zScore": 2.52,
+            "classificacao": "atencao",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 3.3). Prioridade: atencao (score 55). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790983736753_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:28:56.753Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 47,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore 2.35 em heartRate (atencao)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:28:56.753Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 2.35,
+        "classificacao": "atencao",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.47,
+            "desvioPadrao": 0.12,
+            "zScore": -0.59,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 104.79,
+            "desvioPadrao": 27.77,
+            "zScore": 2.35,
+            "classificacao": "atencao",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 49.07,
+            "desvioPadrao": 19.51,
+            "zScore": 2,
+            "classificacao": "atencao",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 3.3). Prioridade: atencao (score 55). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key",
+        "reaproveitada": true
+      }
+    },
+    {
+      "eventoId": "EVT_1790983737668_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:28:57.667Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 44,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore 1.92 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:28:57.667Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 1.92,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.47,
+            "desvioPadrao": 0.12,
+            "zScore": -0.57,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 109.13,
+            "desvioPadrao": 31.62,
+            "zScore": 1.92,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 51.67,
+            "desvioPadrao": 21.32,
+            "zScore": 1.7,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 3.3). Prioridade: atencao (score 55). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key",
+        "reaproveitada": true
+      }
+    },
+    {
+      "eventoId": "EVT_1790983738773_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:28:58.772Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 41,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore 1.67 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:28:58.772Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 1.67,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.46,
+            "desvioPadrao": 0.11,
+            "zScore": -0.54,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 112.94,
+            "desvioPadrao": 34.13,
+            "zScore": 1.67,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 53.94,
+            "desvioPadrao": 22.51,
+            "zScore": 1.51,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 3.3). Prioridade: atencao (score 55). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key",
+        "reaproveitada": true
+      }
+    },
+    {
+      "eventoId": "EVT_1790983744092_PET_00124",
+      "petId": "PET_00124",
+      "timestamp": "2026-09-17T14:00:00Z",
+      "origem": "anomalia_activityLevel",
+      "scorePrioridade": 20,
+      "nivel": "informativo",
+      "fatoresConsiderados": [
+        "zScore 1.3 em activityLevel (normal)",
+        "fator de risco raca/idade 0.4",
+        "ultima consulta ha 34 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00124",
+        "timestamp": "2026-09-17T14:00:00Z",
+        "metricaMaisRelevante": "activityLevel",
+        "zScore": 1.3,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 39,
+            "baselinePersonalizado": 38.91,
+            "desvioPadrao": 0.11,
+            "zScore": 0.8,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 129,
+            "baselinePersonalizado": 125.71,
+            "desvioPadrao": 4.72,
+            "zScore": 0.7,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 68,
+            "baselinePersonalizado": 49.14,
+            "desvioPadrao": 14.52,
+            "zScore": 1.3,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Tudo certo por aqui! Os sinais vitais de Mia estao dentro do esperado.",
+        "resumoClinica": "Mia sem anomalias relevantes no momento (score 20).",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790983745843_PET_00124",
+      "petId": "PET_00124",
+      "timestamp": "2026-10-02T23:29:05.842Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 71,
+      "nivel": "urgente",
+      "fatoresConsiderados": [
+        "zScore 9.71 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 1",
+        "ultima consulta ha 34 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00124",
+        "timestamp": "2026-10-02T23:29:05.842Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 9.71,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 39,
+            "baselinePersonalizado": 38.92,
+            "desvioPadrao": 0.1,
+            "zScore": 0.72,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 126.13,
+            "desvioPadrao": 4.52,
+            "zScore": 9.71,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 51.5,
+            "desvioPadrao": 15,
+            "zScore": 2.43,
+            "classificacao": "atencao",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Notamos uma alteracao importante em frequencia cardiaca de Mia. Recomendamos contato com a CLYVO VET o quanto antes para avaliacao.",
+        "resumoClinica": "Mia (Chihuahua, 7.3 anos) apresentou zScore 9.71 em heartRate. Prioridade: urgente (score 71). Fatores: zScore 9.71 em heartRate (anomalia_alta); fator de risco raca/idade 1; ultima consulta ha 34 dias; sem tratamento ativo em curso.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790983750092_PET_00125",
+      "petId": "PET_00125",
+      "timestamp": "2026-09-19T09:00:00Z",
+      "origem": "anomalia_activityLevel",
+      "scorePrioridade": 12,
+      "nivel": "informativo",
+      "fatoresConsiderados": [
+        "zScore 1.1 em activityLevel (normal)",
+        "fator de risco raca/idade 0.1",
+        "ultima consulta ha 23 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Bento esta atrasada ha 8 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Bento esta ha 365 dias sem limpeza dentaria, sugerir agendamento."
+        }
+      ],
+      "baselineProvisorio": true,
+      "detalheSense": {
+        "petId": "PET_00125",
+        "timestamp": "2026-09-19T09:00:00Z",
+        "metricaMaisRelevante": "activityLevel",
+        "zScore": 1.1,
+        "classificacao": "normal",
+        "baselineProvisorio": true,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.7,
+            "baselinePersonalizado": 38.6,
+            "desvioPadrao": 0.4,
+            "zScore": 0.25,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          },
+          "heartRate": {
+            "valorObservado": 118,
+            "baselinePersonalizado": 105,
+            "desvioPadrao": 15,
+            "zScore": 0.87,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          },
+          "activityLevel": {
+            "valorObservado": 72,
+            "baselinePersonalizado": 50,
+            "desvioPadrao": 20,
+            "zScore": 1.1,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Tudo certo por aqui! Os sinais vitais de Bento estao dentro do esperado.",
+        "resumoClinica": "Bento sem anomalias relevantes no momento (score 12).",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790983753200_PET_00125",
+      "petId": "PET_00125",
+      "timestamp": "2026-10-02T23:29:13.200Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 39,
+      "nivel": "informativo",
+      "fatoresConsiderados": [
+        "zScore 4.33 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 0.1",
+        "ultima consulta ha 23 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Bento esta atrasada ha 8 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Bento esta ha 365 dias sem limpeza dentaria, sugerir agendamento."
+        }
+      ],
+      "baselineProvisorio": true,
+      "detalheSense": {
+        "petId": "PET_00125",
+        "timestamp": "2026-10-02T23:29:13.200Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 4.33,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": true,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.7,
+            "baselinePersonalizado": 38.6,
+            "desvioPadrao": 0.4,
+            "zScore": 0.25,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 105,
+            "desvioPadrao": 15,
+            "zScore": 4.33,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "populacional"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 50,
+            "desvioPadrao": 20,
+            "zScore": 1.9,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Tudo certo por aqui! Os sinais vitais de Bento estao dentro do esperado.",
+        "resumoClinica": "Bento sem anomalias relevantes no momento (score 12).",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key",
+        "reaproveitada": true
+      }
+    },
+    {
+      "eventoId": "EVT_1790984622478_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:28:58.772Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 41,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore 1.67 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:28:58.772Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 1.67,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.46,
+            "desvioPadrao": 0.11,
+            "zScore": -0.54,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 112.94,
+            "desvioPadrao": 34.13,
+            "zScore": 1.67,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 53.94,
+            "desvioPadrao": 22.51,
+            "zScore": 1.51,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 1.67). Prioridade: atencao (score 41). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790984623385_PET_00124",
+      "petId": "PET_00124",
+      "timestamp": "2026-10-02T23:29:05.842Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 71,
+      "nivel": "urgente",
+      "fatoresConsiderados": [
+        "zScore 9.71 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 1",
+        "ultima consulta ha 34 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00124",
+        "timestamp": "2026-10-02T23:29:05.842Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 9.71,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 39,
+            "baselinePersonalizado": 38.92,
+            "desvioPadrao": 0.1,
+            "zScore": 0.72,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 126.13,
+            "desvioPadrao": 4.52,
+            "zScore": 9.71,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 51.5,
+            "desvioPadrao": 15,
+            "zScore": 2.43,
+            "classificacao": "atencao",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Notamos uma alteracao importante em frequencia cardiaca de Mia. Recomendamos contato com a CLYVO VET o quanto antes para avaliacao.",
+        "resumoClinica": "Mia (Chihuahua, 7.3 anos) apresentou zScore 9.71 em heartRate. Prioridade: urgente (score 71). Fatores: zScore 9.71 em heartRate (anomalia_alta); fator de risco raca/idade 1; ultima consulta ha 34 dias; sem tratamento ativo em curso.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790984623386_PET_00125",
+      "petId": "PET_00125",
+      "timestamp": "2026-10-02T23:29:13.200Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 39,
+      "nivel": "informativo",
+      "fatoresConsiderados": [
+        "zScore 4.33 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 0.1",
+        "ultima consulta ha 23 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Bento esta atrasada ha 8 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Bento esta ha 365 dias sem limpeza dentaria, sugerir agendamento."
+        }
+      ],
+      "baselineProvisorio": true,
+      "detalheSense": {
+        "petId": "PET_00125",
+        "timestamp": "2026-10-02T23:29:13.200Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 4.33,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": true,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.7,
+            "baselinePersonalizado": 38.6,
+            "desvioPadrao": 0.4,
+            "zScore": 0.25,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 105,
+            "desvioPadrao": 15,
+            "zScore": 4.33,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "populacional"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 50,
+            "desvioPadrao": 20,
+            "zScore": 1.9,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Tudo certo por aqui! Os sinais vitais de Bento estao dentro do esperado.",
+        "resumoClinica": "Bento sem anomalias relevantes no momento (score 39).",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790984645930_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:44:05.929Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 40,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore 1.5 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:44:05.929Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 1.5,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.46,
+            "desvioPadrao": 0.11,
+            "zScore": -0.52,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 116.29,
+            "desvioPadrao": 35.83,
+            "zScore": 1.5,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 55.94,
+            "desvioPadrao": 23.31,
+            "zScore": 1.38,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 1.67). Prioridade: atencao (score 41). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key",
+        "reaproveitada": true
+      }
+    },
+    {
+      "eventoId": "EVT_1790985169548_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:44:05.929Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 40,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore 1.5 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:44:05.929Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 1.5,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.46,
+            "desvioPadrao": 0.11,
+            "zScore": -0.52,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 116.29,
+            "desvioPadrao": 35.83,
+            "zScore": 1.5,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 55.94,
+            "desvioPadrao": 23.31,
+            "zScore": 1.38,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 1.5). Prioridade: atencao (score 40). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790985173438_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-09-16T20:00:00Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 40,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore -1.44 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-09-16T20:00:00Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": -1.44,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.49,
+            "desvioPadrao": 0.13,
+            "zScore": -0.7,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 90,
+            "baselinePersonalizado": 94.27,
+            "desvioPadrao": 2.97,
+            "zScore": -1.44,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 31,
+            "baselinePersonalizado": 43.64,
+            "desvioPadrao": 11.25,
+            "zScore": -1.12,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore 1.5). Prioridade: atencao (score 40). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key",
+        "reaproveitada": true
+      }
+    },
+    {
+      "eventoId": "EVT_1790985320571_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-10-02T23:55:20.569Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 78,
+      "nivel": "urgente",
+      "fatoresConsiderados": [
+        "zScore 24.64 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-10-02T23:55:20.569Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 24.64,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.48,
+            "desvioPadrao": 0.13,
+            "zScore": -0.66,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 93.92,
+            "desvioPadrao": 3.09,
+            "zScore": 24.64,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 42.58,
+            "desvioPadrao": 11.33,
+            "zScore": 4.01,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Notamos uma alteracao importante em frequencia cardiaca de Thor. Recomendamos contato com a CLYVO VET o quanto antes para avaliacao.",
+        "resumoClinica": "Thor (Golden Retriever, 5.6 anos) apresentou zScore 24.64 em heartRate. Prioridade: urgente (score 78). Fatores: zScore 24.64 em heartRate (anomalia_alta); fator de risco raca/idade 0.7; ultima consulta ha 230 dias; adesao ao tratamento 73%.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790985337000_PET_00124",
+      "petId": "PET_00124",
+      "timestamp": "2026-10-02T23:29:05.842Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 71,
+      "nivel": "urgente",
+      "fatoresConsiderados": [
+        "zScore 9.71 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 1",
+        "ultima consulta ha 34 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00124",
+        "timestamp": "2026-10-02T23:29:05.842Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 9.71,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 39,
+            "baselinePersonalizado": 38.92,
+            "desvioPadrao": 0.1,
+            "zScore": 0.72,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 126.13,
+            "desvioPadrao": 4.52,
+            "zScore": 9.71,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 51.5,
+            "desvioPadrao": 15,
+            "zScore": 2.43,
+            "classificacao": "atencao",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Notamos uma alteracao importante em frequencia cardiaca de Mia. Recomendamos contato com a CLYVO VET o quanto antes para avaliacao.",
+        "resumoClinica": "Mia (Chihuahua, 7.3 anos) apresentou zScore 9.71 em heartRate. Prioridade: urgente (score 71). Fatores: zScore 9.71 em heartRate (anomalia_alta); fator de risco raca/idade 1; ultima consulta ha 34 dias; sem tratamento ativo em curso.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790985337001_PET_00125",
+      "petId": "PET_00125",
+      "timestamp": "2026-10-02T23:29:13.200Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 39,
+      "nivel": "informativo",
+      "fatoresConsiderados": [
+        "zScore 4.33 em heartRate (anomalia_alta)",
+        "fator de risco raca/idade 0.1",
+        "ultima consulta ha 23 dias",
+        "sem tratamento ativo em curso"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Bento esta atrasada ha 8 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Bento esta ha 365 dias sem limpeza dentaria, sugerir agendamento."
+        }
+      ],
+      "baselineProvisorio": true,
+      "detalheSense": {
+        "petId": "PET_00125",
+        "timestamp": "2026-10-02T23:29:13.200Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": 4.33,
+        "classificacao": "anomalia_alta",
+        "baselineProvisorio": true,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.7,
+            "baselinePersonalizado": 38.6,
+            "desvioPadrao": 0.4,
+            "zScore": 0.25,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          },
+          "heartRate": {
+            "valorObservado": 170,
+            "baselinePersonalizado": 105,
+            "desvioPadrao": 15,
+            "zScore": 4.33,
+            "classificacao": "anomalia_alta",
+            "origemBaseline": "populacional"
+          },
+          "activityLevel": {
+            "valorObservado": 88,
+            "baselinePersonalizado": 50,
+            "desvioPadrao": 20,
+            "zScore": 1.9,
+            "classificacao": "normal",
+            "origemBaseline": "populacional"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Tudo certo por aqui! Os sinais vitais de Bento estao dentro do esperado.",
+        "resumoClinica": "Bento sem anomalias relevantes no momento (score 39).",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    },
+    {
+      "eventoId": "EVT_1790985350682_PET_00123",
+      "petId": "PET_00123",
+      "timestamp": "2026-09-16T20:00:00Z",
+      "origem": "anomalia_heartRate",
+      "scorePrioridade": 40,
+      "nivel": "atencao",
+      "fatoresConsiderados": [
+        "zScore -1.44 em heartRate (normal)",
+        "fator de risco raca/idade 0.7",
+        "ultima consulta ha 230 dias",
+        "adesao ao tratamento 73%"
+      ],
+      "recomendacoes": [
+        {
+          "tipo": "vacina",
+          "mensagem": "Vacina de Thor vence em 2 dia(s)."
+        },
+        {
+          "tipo": "limpeza_dentaria",
+          "mensagem": "Thor esta ha 489 dias sem limpeza dentaria, sugerir agendamento."
+        },
+        {
+          "tipo": "adesao_tratamento",
+          "mensagem": "Adesao ao tratamento de Thor esta em 73%, considerar contato proativo."
+        }
+      ],
+      "baselineProvisorio": false,
+      "detalheSense": {
+        "petId": "PET_00123",
+        "timestamp": "2026-09-16T20:00:00Z",
+        "metricaMaisRelevante": "heartRate",
+        "zScore": -1.44,
+        "classificacao": "normal",
+        "baselineProvisorio": false,
+        "porMetrica": {
+          "temperature": {
+            "valorObservado": 38.4,
+            "baselinePersonalizado": 38.49,
+            "desvioPadrao": 0.13,
+            "zScore": -0.7,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "heartRate": {
+            "valorObservado": 90,
+            "baselinePersonalizado": 94.27,
+            "desvioPadrao": 2.97,
+            "zScore": -1.44,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          },
+          "activityLevel": {
+            "valorObservado": 31,
+            "baselinePersonalizado": 43.64,
+            "desvioPadrao": 11.25,
+            "zScore": -1.12,
+            "classificacao": "normal",
+            "origemBaseline": "individual"
+          }
+        }
+      },
+      "mensagens": {
+        "mensagemTutor": "Oi! Percebemos uma mudanca em Thor que vale observar nas proximas horas. Se persistir, recomendamos agendar uma avaliacao com a CLYVO VET.",
+        "resumoClinica": "Thor (Golden Retriever) com desvio moderado em heartRate (zScore -1.44). Prioridade: atencao (score 40). Sugerido monitoramento proximo.",
+        "origem": "fallback_template",
+        "motivoFallback": "sem_api_key"
+      }
+    }
+  ],
   "feedback": []
 }

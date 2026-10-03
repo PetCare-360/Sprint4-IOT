@@ -24,11 +24,6 @@ function obter(petId) {
   return cache.get(petId) || null;
 }
 
-/**
- * Decide se vale a pena chamar o LLM de novo para este pet: sim se e a primeira
- * vez, se o nivel de prioridade mudou desde a ultima mensagem gerada, ou se ja
- * passou o tempo de cooldown desde a ultima chamada real ao LLM.
- */
 function precisaChamarLLM(petId, nivelAtual, agora = Date.now()) {
   const entrada = cache.get(petId);
   if (!entrada) return true;

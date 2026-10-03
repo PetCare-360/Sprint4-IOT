@@ -199,6 +199,18 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, insight);
     }
 
+    // Desfazer simulacao
+    if (pathname === "/api/limpar-simulacao" && req.method === "POST") {
+      const body = await readBody(req);
+      const petId = body.petId || "PET_00123";
+      const pet = store.getPet(petId);
+      if (!pet) return sendJson(res, 404, { erro: "Pet nao encontrado" });
+
+      store.removerSimulacoes(petId);
+      const insight = await gerarInsight(petId);
+      return sendJson(res, 200, insight);
+    }
+
     // Feedback (fecha o loop, secao 5 item 7 do README Sprint3)
     if (pathname === "/api/feedback" && req.method === "POST") {
       const body = await readBody(req);

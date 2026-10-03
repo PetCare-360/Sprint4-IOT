@@ -1,4 +1,3 @@
-// src/store.js
 // Camada de dados simples baseada em arquivo (evolução do db.json da Sprint 1).
 // Mantém em memória + persiste em disco a cada escrita, sem dependências externas.
 
@@ -61,6 +60,13 @@ function addLeitura(petId, leitura) {
   return leitura;
 }
 
+function removerSimulacoes(petId) {
+  if (db.leituras[petId]) {
+    db.leituras[petId] = db.leituras[petId].filter(l => l.heartRate !== 170);
+    saveDb(db);
+  }
+}
+
 // Eventos (histórico de anomalias/priorização gerados pela IA) 
 function addEvento(evento) {
   db.eventos.push(evento);
@@ -91,6 +97,7 @@ module.exports = {
   getPetByColeira,
   getLeituras,
   addLeitura,
+  removerSimulacoes,
   addEvento,
   getEventos,
   addFeedback,

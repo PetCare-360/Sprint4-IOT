@@ -231,8 +231,9 @@
                     <ul id="fatoresList"></ul>
                 </details>
 
-                <div style="margin-top:1.25rem;">
+                <div style="margin-top:1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
                     <button class="sim-btn" id="simBtn"><i class="ph-bold ph-flask"></i> Simular pico de frequência cardíaca (demo)</button>
+                    <button class="sim-btn" id="clearSimBtn" style="background: var(--danger);"><i class="ph-bold ph-trash"></i> Desfazer Simulado</button>
                 </div>
             </div>
         </section>
@@ -374,6 +375,23 @@
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = '<i class="ph-bold ph-flask"></i> Simular pico de frequência cardíaca (demo)';
+            }
+        });
+
+        document.getElementById('clearSimBtn').addEventListener('click', async (e) => {
+            const btn = e.currentTarget;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="ph-bold ph-spinner"></i> Desfazendo...';
+            try {
+                await fetch(`${API}/api/limpar-simulacao`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ petId: petAtual })
+                });
+                await atualizarTutor();
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="ph-bold ph-trash"></i> Desfazer Simulado';
             }
         });
 
